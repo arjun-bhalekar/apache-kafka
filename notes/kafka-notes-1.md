@@ -9,34 +9,37 @@
 
 
 
-### 1. Start Zookeeper Server :
+### 1. Start Zookeeper Server : 
 
-	command to start : arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/zookeeper-server-start.sh config/zookeeper.properties
+	$ bin/zookeeper-server-start.sh config/zookeeper.properties
 
-		default port : 2181
+default port of zookeeper server : 2181
+
 
 ### 2. Start kafka server/broker :
 
-	command to start : arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-server-start.sh config/server.properties
+	$ bin/kafka-server-start.sh config/server.properties
 	
-		default port : 9092
+default port of kafka server : 9092
 	
 ### 3. Create topic :
-	
-	command to create tpoic : arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
-	
-	arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
-	
-	command to list topics : arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --		list
-	myfirst-topic
-	mysec-topic
 
-	command to describe topic : arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic myfirst-topic
-	output :	
-					Topic: myfirst-topic	TopicId: LNxlK2mNTVaDQ3y2Z22NRg	PartitionCount: 3	ReplicationFactor: 1	Configs: 
-					Topic: myfirst-topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
-					Topic: myfirst-topic	Partition: 1	Leader: 0	Replicas: 0	Isr: 0
-					Topic: myfirst-topic	Partition: 2	Leader: 0	Replicas: 0	Isr: 0
+3.1 Create Topic : myfirst-topic
+
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
+
+3.2 Create Topic : mysecond-topic
+
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
+
+3.3 List all created topics :
+
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+3.4 Describe topic :
+
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic myfirst-topic
+	
 
 
 ### 4. Offset explorer Tool:
