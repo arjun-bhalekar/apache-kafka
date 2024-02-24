@@ -30,7 +30,7 @@ default port of kafka server : 9092
 
 3.2 Create Topic : mysecond-topic
 
-	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic mysecond-topic --partitions 3 --replication-factor 1
 
 3.3 List all created topics :
 
@@ -50,15 +50,19 @@ default port of kafka server : 9092
 
 
 ### 5. Kafka Console Producer : 
-	arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic
+	
+	$ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic
 	
 	>this is sample msg from producer
 
-	Note : To push bulk messages from csv file > $ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic </home/arjunb/Downloads/customers-1000.csv
+Note : To push bulk messages from csv file > $ bin/
+
+	kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic </home/arjunb/Downloads/customers-1000.csv
 
 
-### 6.Kafka Console producer : 
-	arjunb@arjunb-Vostro-3480:~/kafka/kafka_2.13-3.6.1$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myfirst-topic --from-beginning
+### 6.Kafka Console Consumer : 
+	
+	$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myfirst-topic --from-beginning
 
 	>this is sample msg from producer
 
@@ -71,26 +75,26 @@ Link to Download : https://www.confluent.io/get-started/?product=self-managed
 
 7.1 Start Confluent Zookeeper Server :
 		
-	bin/zookeeper-server-start etc/kafka/zookeeper.properties 
+	$ bin/zookeeper-server-start etc/kafka/zookeeper.properties 
 
 7.2 Start Confluent Kafka Server :
 
-	bin/kafka-server-start etc/kafka/server.properties 
+	$ bin/kafka-server-start etc/kafka/server.properties 
 
 7.3 Create topic :
 
-	bin/kafka-topics --bootstrap-server localhost:9092 --create --topic mythird-topic
+	$ bin/kafka-topics --bootstrap-server localhost:9092 --create --topic mythird-topic
 
 7.4 Produce Message :
 	
-	bin/kafka-console-producer --bootstrap-server localhost:9092 --topic mythird-topic
+	$ bin/kafka-console-producer --bootstrap-server localhost:9092 --topic mythird-topic
 	>mobile:8796977808 
 	>add: shivalaua hsg. soc., sus gaon, pune-411021
 
 
 7.5 Consume Message :
 
-	bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic mythird-topic --from-beginning
+	$ bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic mythird-topic --from-beginning
 	>mobile:8796977808
 	>add: shivalaua hsg. soc., sus gaon, pune-411021
 
