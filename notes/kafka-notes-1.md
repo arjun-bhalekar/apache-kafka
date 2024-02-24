@@ -93,4 +93,53 @@ Link to Download : https://www.confluent.io/get-started/?product=self-managed
 
 ### Cosumer- Producer Working Diagram - 
 
+
 ![image description](images/prod-cons-working.gif)
+
+------------------------------
+
+### Kafka Without Zookeeper [ KRaft ] :
+
+Open Terminal & Execute below commands : 
+
+#### Generate a Cluster UUID :
+
+	$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+
+#### Format Log Directories :
+
+	$ bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+
+#### Start Kafka Server :
+
+	$ bin/kafka-server-start.sh config/kraft/server.properties
+
+#### Create Sample Topic :
+
+	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic myfirst-topic --partitions 3 --replication-factor 1
+
+#### Produce & Consume message on Topic :
+ 
+ 	$ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic
+
+	$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myfirst-topic --from-beginning 
+
+#### Showing metadata of cluster :
+
+	$ bin/kafka-metadata-quorum.sh --bootstrap-server localhost:9092 describe --status
+
+	ClusterId:              35TwHPFbQpKDSb8djNzTHw
+	LeaderId:               1
+	LeaderEpoch:            1
+	HighWatermark:          2327
+	MaxFollowerLag:         0
+	MaxFollowerLagTimeMs:   0
+	CurrentVoters:          [1]
+	CurrentObservers:       []
+
+#### Replication Info :
+
+	$ bin/kafka-metadata-quorum.sh --bootstrap-server localhost:9092 describe --replication
+
+	NodeId	LogEndOffset	Lag	LastFetchTimestamp	LastCaughtUpTimestamp	Status	
+	1     	2498        	0  	1708767591655     	1708767591655        	Leader	
