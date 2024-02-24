@@ -55,9 +55,9 @@ default port of kafka server : 9092
 	
 	>this is sample msg from producer
 
-Note : To push bulk messages from csv file > $ bin/
-
-	kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic </home/arjunb/Downloads/customers-1000.csv
+Note : To push bulk messages from csv file 
+	
+	$ bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirst-topic </home/arjunb/Downloads/customers-1000.csv
 
 
 ### 6.Kafka Console Consumer : 
