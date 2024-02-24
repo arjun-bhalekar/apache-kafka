@@ -90,3 +90,7 @@ Link to Download : https://www.confluent.io/get-started/?product=self-managed
 	bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic mythird-topic --from-beginning
 	>mobile:8796977808
 	>add: shivalaua hsg. soc., sus gaon, pune-411021
+
+### Cosumer- Producer Working Diagram - 
+
+![image description](images/prod-cons-working.gif)
