@@ -39,7 +39,9 @@ default port of kafka server : 9092
 3.4 Describe topic :
 
 	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic myfirst-topic
-	
+3.5 Delete topic : 
+
+ 	$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic myfirst-topic --delete
 
 
 ### 4. Offset explorer Tool:
