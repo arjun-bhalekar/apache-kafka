@@ -49,7 +49,7 @@ default port of kafka server : 9092
 
 	Required java 11 to install & run offset explorer.
 
-
+ 	![image description](images/offsetExplorer3.0.png)
 
 ### 5. Kafka Console Producer : 
 	
