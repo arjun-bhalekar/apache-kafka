@@ -1,5 +1,6 @@
 package com.kafkalearn.service;
 
+import com.kafkalearn.AppConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -14,7 +15,7 @@ public class KafkaMessagePublisher {
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessageToTopic(String message) {
-        CompletableFuture<SendResult<String, Object>> completableFuture = kafkaTemplate.send("my-app-custom", message);
+        CompletableFuture<SendResult<String, Object>> completableFuture = kafkaTemplate.send(AppConstant.TOPIC_NAME, message);
         completableFuture.whenComplete((result, ex) -> {
 
             if (ex == null) {

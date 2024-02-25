@@ -16,11 +16,11 @@ public class EventController {
     @Autowired
     private KafkaMessagePublisher kafkaMessagePublisher;
 
-    @GetMapping("/publish/{message}")
-    public ResponseEntity<?> publishMessage(@PathVariable String message) {
+    @GetMapping("/publish/{message}/{count}")
+    public ResponseEntity<?> publishMessage(@PathVariable String message, @PathVariable int count) {
         try {
 
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < count; i++) {
                 kafkaMessagePublisher.sendMessageToTopic(message + "-" + i);
             }
             return ResponseEntity.ok("message published successfully");
